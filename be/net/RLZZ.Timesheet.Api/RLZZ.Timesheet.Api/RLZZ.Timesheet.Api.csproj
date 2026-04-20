@@ -15,4 +15,16 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\RLZZ.Timesheet.AppsMenu\RLZZ.Timesheet.AppsMenu.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.Client\RLZZ.Timesheet.Client.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.Group\RLZZ.Timesheet.Group.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.Holiday\RLZZ.Timesheet.Holiday.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.ProjectType\RLZZ.Timesheet.ProjectType.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.Project\RLZZ.Timesheet.Project.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.SystemParameter\RLZZ.Timesheet.SystemParameter.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.Task\RLZZ.Timesheet.Task.csproj" />
+      <ProjectReference Include="..\RLZZ.Timesheet.Users\RLZZ.Timesheet.Users.csproj" />
+    </ItemGroup>
+
 </Project>

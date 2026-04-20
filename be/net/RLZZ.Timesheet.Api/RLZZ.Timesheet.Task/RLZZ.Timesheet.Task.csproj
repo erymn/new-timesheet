@@ -7,7 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Ardalis.GuardClauses" Version="5.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\" />
+      <Folder Include="Endpoints\" />
+      <Folder Include="Extension\" />
+      <Folder Include="Features\" />
+      <Folder Include="Migration\" />
+      <Folder Include="Model\" />
+      <Folder Include="Profiles\" />
+      <Folder Include="Repositories\" />
+      <Folder Include="Services\" />
     </ItemGroup>
 
 </Project>
