@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLZZ.Timesheet.ProjectType"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLZZ.Timesheet.Project", "RLZZ.Timesheet.Project\RLZZ.Timesheet.Project.csproj", "{76E1F94A-4B3E-4074-9B30-D1CFC81F3F51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLZZ.Timesheet.User", "RLZZ.Timesheet.User\RLZZ.Timesheet.User.csproj", "{9F189024-57A5-4931-B3FA-B36E20CC5350}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLZZ.Timesheet.Users", "RLZZ.Timesheet.Users\RLZZ.Timesheet.Users.csproj", "{9F189024-57A5-4931-B3FA-B36E20CC5350}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLZZ.Timesheet.Group", "RLZZ.Timesheet.Group\RLZZ.Timesheet.Group.csproj", "{99583CA0-F138-4E96-86CE-BBB6FC110D13}"
 EndProject
