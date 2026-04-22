@@ -18,10 +18,13 @@
       <Folder Include="Extension\" />
       <Folder Include="Features\" />
       <Folder Include="Migration\" />
-      <Folder Include="Model\" />
       <Folder Include="Profiles\" />
       <Folder Include="Repositories\" />
       <Folder Include="Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RLZZ.Timesheet.Securities\RLZZ.Timesheet.Securities.csproj" />
     </ItemGroup>
 
 </Project>

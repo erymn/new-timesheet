@@ -1,14 +1,14 @@
-using Ardalis.GuardClauses;
 using RLZZ.Timesheet.Securities;
 
-namespace RLZZ.Timesheet.Group.Model;
+namespace RLZZ.Timesheet.Holiday.Model;
 
-public class Group
+public class Holiday
 {
-    public int Id { get; private set; }
-    public string GroupUniqueId { get; private set; }
-    public  string Name { get; private set; }
-
+    public int Id { get; set; }
+    public string HolidayUniqueId { get; set; }
+    public DateTime HolidayDay { get; set; }
+    public string Name { get; set; }
+    
     public bool IsActive { get; private set; } = true;
     public bool IsDeleted { get; private set; } = false;
     public DateTime CreatedDate { get; private set; } = DateTime.Now;
@@ -16,13 +16,14 @@ public class Group
     public DateTime ModifiedDate { get; private set; } = DateTime.Now;
     public string ModifiedBy { get; private set; } = "system";
 
-    public Group(string name)
+    public Holiday(DateTime holidayDay, string holidayName)
     {
-        Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+        HolidayDay = holidayDay;
+        Name = holidayName;
     }
-    
-    public void UpdateGroupId(int id)
+
+    public void UpdateUniqueId(int id)
     {
-        GroupUniqueId = Id.ToUniqueId();
+        HolidayUniqueId = id.ToUniqueId();
     }
 }

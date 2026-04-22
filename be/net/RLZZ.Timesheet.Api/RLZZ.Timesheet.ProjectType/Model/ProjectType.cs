@@ -1,14 +1,14 @@
 using Ardalis.GuardClauses;
 using RLZZ.Timesheet.Securities;
 
-namespace RLZZ.Timesheet.Group.Model;
+namespace RLZZ.Timesheet.ProjectType.Model;
 
-public class Group
+public class ProjectType
 {
-    public int Id { get; private set; }
-    public string GroupUniqueId { get; private set; }
-    public  string Name { get; private set; }
-
+    public int Id { get; set; }
+    public string ProjectTypeUniqueId { get; set; }
+    public string Name { get; set; }
+    
     public bool IsActive { get; private set; } = true;
     public bool IsDeleted { get; private set; } = false;
     public DateTime CreatedDate { get; private set; } = DateTime.Now;
@@ -16,13 +16,13 @@ public class Group
     public DateTime ModifiedDate { get; private set; } = DateTime.Now;
     public string ModifiedBy { get; private set; } = "system";
 
-    public Group(string name)
+    public ProjectType(string typeName)
     {
-        Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+        Name = Guard.Against.NullOrEmpty(typeName);
     }
-    
-    public void UpdateGroupId(int id)
+
+    public void UpdateUniqueId(int id)
     {
-        GroupUniqueId = Id.ToUniqueId();
+        ProjectTypeUniqueId = id.ToUniqueId();
     }
 }
