@@ -1,15 +1,33 @@
+using Ardalis.GuardClauses;
+using RLZZ.Timesheet.Securities;
+
 namespace RLZZ.Timesheet.Group.Model;
 
 public class Group
 {
-    public int Id { get; set; }
-    public required string GroupId { get; set; }
-    public required string Name { get; set; }
+    public int Id { get; private set; }
+    public string GroupUniqueId { get; private set; }
+    public  string Name { get; private set; }
 
-    public bool IsActive { get; set; } = true;
-    public bool IsDeleted { get; set; } = false;
-    public DateTime CreatedDate { get; set; } = DateTime.Now;
-    public required string CreatedBy { get; set; } = "system";
-    public DateTime ModifiedDate { get; set; } = DateTime.Now;
-    public required string ModifiedBy { get; set; } = "system";
+    public bool IsActive { get; private set; } = true;
+    public bool IsDeleted { get; private set; } = false;
+    public DateTime CreatedDate { get; private set; } = DateTime.Now;
+    public string CreatedBy { get; private set; } = "system";
+    public DateTime ModifiedDate { get; private set; } = DateTime.Now;
+    public string ModifiedBy { get; private set; } = "system";
+
+    public Group(string name)
+    {
+        Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+    }
+    
+    public void UpdateGroupId(int id)
+    {
+        GroupUniqueId = Id.ToUniqueId();
+    }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }
