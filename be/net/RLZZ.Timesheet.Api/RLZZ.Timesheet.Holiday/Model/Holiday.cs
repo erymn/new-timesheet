@@ -26,4 +26,9 @@ public class Holiday
     {
         HolidayUniqueId = id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

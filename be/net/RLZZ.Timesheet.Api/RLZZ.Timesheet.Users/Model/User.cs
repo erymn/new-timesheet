@@ -39,4 +39,9 @@ public class User
     {
         UserUniqueId = Id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

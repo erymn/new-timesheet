@@ -25,4 +25,9 @@ public class ProjectType
     {
         ProjectTypeUniqueId = id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

@@ -25,4 +25,9 @@ public class Client
     {
         ClientUniqueId = id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

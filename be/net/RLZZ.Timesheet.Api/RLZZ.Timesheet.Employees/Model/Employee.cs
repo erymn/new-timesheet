@@ -30,4 +30,9 @@ public class Employee
     {
         EmployeeUniqueId = id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

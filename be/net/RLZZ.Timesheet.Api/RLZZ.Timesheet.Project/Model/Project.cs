@@ -33,4 +33,9 @@ public class Project
     {
         ProjectUniqueId = id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

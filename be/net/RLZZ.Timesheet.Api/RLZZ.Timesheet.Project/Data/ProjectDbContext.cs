@@ -20,7 +20,12 @@ public class ProjectDbContext : DbContext
             entity.Property(e => e.Code).HasMaxLength(50).IsRequired();
             entity.Property(e => e.Name).HasMaxLength(200);
             entity.Property(e => e.ClientId).HasMaxLength(50);
+            
+            entity.Property(e => e.IsActive);
+            entity.Property(e => e.IsDeleted);
+            entity.Property(e => e.CreatedDate);
             entity.Property(e => e.CreatedBy).HasMaxLength(100);
+            entity.Property(e => e.ModifiedDate);
             entity.Property(e => e.ModifiedBy).HasMaxLength(100);
         });
     }

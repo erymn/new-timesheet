@@ -17,4 +17,9 @@ public class TsSubmission
     public string CreatedBy { get; private set; } = "system";
     public DateTime ModifiedDate { get; private set; } = DateTime.Now;
     public string ModifiedBy { get; private set; } = "system";
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

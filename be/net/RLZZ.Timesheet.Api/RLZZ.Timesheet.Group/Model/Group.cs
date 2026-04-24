@@ -25,4 +25,9 @@ public class Group
     {
         GroupUniqueId = Id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }

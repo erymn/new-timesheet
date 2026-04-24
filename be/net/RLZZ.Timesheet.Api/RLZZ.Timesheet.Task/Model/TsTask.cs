@@ -24,10 +24,8 @@ public class TsTask
     public DateTime ModifiedDate { get; private set; } = DateTime.Now;
     public string ModifiedBy { get; private set; } = "system";
 
-    public TsTask(string userName, string password, string salt, string email, bool isForceResetPassword, string supervisorId)
+    public void UpdateDeletedFlag(bool isDeleted)
     {
-        
+        IsDeleted = isDeleted;
     }
-
-
 }

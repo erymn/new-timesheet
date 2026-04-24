@@ -31,4 +31,9 @@ public class SysParam
     {
         SysParamUniqueId = id.ToUniqueId();
     }
+
+    public void UpdateDeletedFlag(bool isDeleted)
+    {
+        IsDeleted = isDeleted;
+    }
 }
