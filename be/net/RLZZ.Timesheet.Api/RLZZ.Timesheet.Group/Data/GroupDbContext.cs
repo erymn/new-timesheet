@@ -16,7 +16,7 @@ public class GroupDbContext : DbContext
         modelBuilder.Entity<GroupModel>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.GroupUniqueId).HasMaxLength(100);
+            entity.Property(e => e.GroupId).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(200).IsRequired();
             
             entity.Property(e => e.IsActive);

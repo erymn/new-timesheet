@@ -11,15 +11,16 @@ public record ProjectDto
 
     public ProjectDto()
     {
+        
     }
 
     public ProjectDto(string projectUniqueId, string code, string name, string clientId, decimal mandays, bool isBillable) : this()
     {
-        ProjectUniqueId = projectUniqueId;
-        Code = code;
-        Name = name;
-        ClientId = clientId;
-        Mandays = mandays;
-        IsBillable = isBillable;
+        this.ProjectUniqueId = projectUniqueId;
+        this.Code = code;
+        this.Name = name;
+        this.ClientId = clientId;
+        this.Mandays = mandays;
+        this.IsBillable = isBillable;
     }
 }

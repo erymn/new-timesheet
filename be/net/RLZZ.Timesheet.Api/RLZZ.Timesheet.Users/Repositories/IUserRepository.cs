@@ -2,7 +2,7 @@ namespace RLZZ.Timesheet.User.Repositories;
 
 public interface IUserRepository
 {
-    Task<Model.User> GetByIdAsync(int id);
+    Task<Model.User> GetByIdAsync(string id);
     Task<List<Model.User>> ListAllAsync();
     Task AddAsync(Model.User user);
     Task UpdateAsync(Model.User user);

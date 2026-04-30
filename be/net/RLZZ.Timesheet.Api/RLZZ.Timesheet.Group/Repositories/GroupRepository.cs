@@ -12,19 +12,21 @@ public class GroupRepository : IGroupRepository
         _context = context;
     }
 
-    public async Task<Model.Group> GetByIdAsync(int id)
+    public async Task<Model.Group> GetByIdAsync(string id)
     {
-        return await _context.Groups.FirstOrDefaultAsync(c => c.Id == id);
+        return await _context.Groups.FirstOrDefaultAsync(g => g.GroupId == id);
     }
 
     public async Task<List<Model.Group>> ListAllAsync()
     {
-        return await _context.Groups.Where(c => c.IsDeleted == false).ToListAsync();
+        return await _context.Groups.Where(g => g.IsDeleted == false).ToListAsync();
     }
 
     public async Task AddAsync(Model.Group group)
     {
         await _context.Groups.AddAsync(group);
+        await SaveChangesAsync();
+        group.UpdateGroupId(group.Id);
         await SaveChangesAsync();
     }
 

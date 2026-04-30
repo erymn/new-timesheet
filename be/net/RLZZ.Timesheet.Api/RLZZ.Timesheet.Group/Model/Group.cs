@@ -6,7 +6,7 @@ namespace RLZZ.Timesheet.Group.Model;
 public class Group
 {
     public int Id { get; private set; }
-    public string GroupUniqueId { get; private set; }
+    public string GroupId { get; private set; }
     public  string Name { get; private set; }
 
     public bool IsActive { get; private set; } = true;
@@ -23,11 +23,17 @@ public class Group
     
     public void UpdateGroupId(int id)
     {
-        GroupUniqueId = Id.ToUniqueId();
+        GroupId = Id.ToUniqueId();
+    }
+
+    public void UpdateName(string name)
+    {
+        Name = Ardalis.GuardClauses.Guard.Against.NullOrWhiteSpace(name, nameof(name));
     }
 
     public void UpdateDeletedFlag(bool isDeleted)
     {
+        IsActive = !isDeleted;
         IsDeleted = isDeleted;
     }
 }

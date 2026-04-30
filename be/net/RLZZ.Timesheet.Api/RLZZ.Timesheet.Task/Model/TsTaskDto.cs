@@ -14,18 +14,18 @@ public record TsTaskDto
 
     public TsTaskDto()
     {
+        
     }
 
-    public TsTaskDto(long id, string projectTypeId, string projectId, string userId, string description, byte submissionStatus, DateTime? submitDate, DateTime approvalDate, string approvalName) : this()
+    public TsTaskDto(string projectTypeId, string projectId, string userId, string description, byte submissionStatus, DateTime? submitDate, DateTime approvalDate, string approvalName) : this()
     {
-        Id = id;
-        ProjectTypeId = projectTypeId;
-        ProjectId = projectId;
-        UserId = userId;
-        Description = description;
-        SubmissionStatus = submissionStatus;
-        SubmitDate = submitDate;
-        ApprovalDate = approvalDate;
-        ApprovalName = approvalName;
+        this.ProjectTypeId = projectTypeId;
+        this.ProjectId = projectId;
+        this.UserId = userId;
+        this.Description = description;
+        this.SubmissionStatus = submissionStatus;
+        this.SubmitDate = submitDate;
+        this.ApprovalDate = approvalDate;
+        this.ApprovalName = approvalName;
     }
 }

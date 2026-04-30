@@ -24,6 +24,14 @@ public class TsTask
     public DateTime ModifiedDate { get; private set; } = DateTime.Now;
     public string ModifiedBy { get; private set; } = "system";
 
+    public TsTask(string projectTypeId, string projectId, string userId, string description)
+    {
+        ProjectTypeId = projectTypeId;
+        ProjectId = projectId;
+        UserId = userId;
+        Description = description;
+    }
+
     public void UpdateDeletedFlag(bool isDeleted)
     {
         IsDeleted = isDeleted;

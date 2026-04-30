@@ -28,6 +28,7 @@ public class Client
 
     public void UpdateDeletedFlag(bool isDeleted)
     {
+        IsActive =  isDeleted;
         IsDeleted = isDeleted;
     }
 }

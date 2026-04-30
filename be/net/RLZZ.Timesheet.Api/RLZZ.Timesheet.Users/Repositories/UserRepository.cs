@@ -12,19 +12,21 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task<Model.User> GetByIdAsync(int id)
+    public async Task<Model.User> GetByIdAsync(string id)
     {
-        return await _context.Users.FirstOrDefaultAsync(c => c.Id == id);
+        return await _context.Users.FirstOrDefaultAsync(u => u.UserUniqueId == id);
     }
 
     public async Task<List<Model.User>> ListAllAsync()
     {
-        return await _context.Users.Where(c => c.IsDeleted == false).ToListAsync();
+        return await _context.Users.Where(u => u.IsDeleted == false).ToListAsync();
     }
 
     public async Task AddAsync(Model.User user)
     {
         await _context.Users.AddAsync(user);
+        await SaveChangesAsync();
+        user.UpdateUniqueId(user.Id);
         await SaveChangesAsync();
     }
 
