@@ -17,6 +17,11 @@ public class UserRepository : IUserRepository
         return await _context.Users.FirstOrDefaultAsync(u => u.UserUniqueId == id);
     }
 
+    public async Task<Model.User> GetByUsernameAsync(string username)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+    }
+
     public async Task<List<Model.User>> ListAllAsync()
     {
         return await _context.Users.Where(u => u.IsDeleted == false).ToListAsync();

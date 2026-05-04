@@ -11,7 +11,7 @@ public class DeleteTask(ICommandor commandor) : Endpoint<DeleteTaskRequest>
     public override void Configure()
     {
         Delete("/api/v1/tasks/{id}");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
 
     public override async SysTask.Task HandleAsync(DeleteTaskRequest req, CancellationToken ct)

@@ -11,7 +11,7 @@ public class GetGroupById(ICommandor commandor) : Endpoint<GetGroupByIdRequest>
     public override void Configure()
     {
         Get("/api/v1/groups/{id}");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
     
     public override async Task HandleAsync(GetGroupByIdRequest req, CancellationToken ct)

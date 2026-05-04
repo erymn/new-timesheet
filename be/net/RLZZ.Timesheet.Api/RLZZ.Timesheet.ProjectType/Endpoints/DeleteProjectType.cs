@@ -10,7 +10,7 @@ public class DeleteProjectType(ICommandor commandor) : Endpoint<DeleteProjectTyp
     public override void Configure()
     {
         Delete("/api/v1/project-types/{id}");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(DeleteProjectTypeRequest req, CancellationToken ct)

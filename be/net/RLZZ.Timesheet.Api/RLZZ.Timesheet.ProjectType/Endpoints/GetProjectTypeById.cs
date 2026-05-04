@@ -11,7 +11,7 @@ public class GetProjectTypeById(ICommandor commandor) : Endpoint<GetProjectTypeB
     public override void Configure()
     {
         Get("/api/v1/project-types/{id}");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
     
     public override async Task HandleAsync(GetProjectTypeByIdRequest req, CancellationToken ct)

@@ -12,7 +12,7 @@ public class UpdateProjectType(ICommandor commandor) : EndpointWithoutRequest<Up
     public override void Configure()
     {
         Put("/api/v1/project-types/{id}");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public async Task HandleAsync(UpdateProjectTypeRequest req, CancellationToken ct)

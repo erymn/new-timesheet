@@ -12,9 +12,7 @@ public class UpdateClient(ICommandor commandor) : EndpointWithoutRequest<UpdateC
     public override void Configure()
     {
         Put("/api/v1/clients/{id}");
-
-        //TODO: Next harus set Security nya
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public async Task HandleAsync(UpdateClientRequest req, CancellationToken ct)

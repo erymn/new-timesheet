@@ -12,7 +12,7 @@ public class UpdateUser(ICommandor commandor) : EndpointWithoutRequest<UpdateUse
     public override void Configure()
     {
         Put("/api/v1/users/{id}");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public async Task HandleAsync(UpdateUserRequest req, CancellationToken ct)

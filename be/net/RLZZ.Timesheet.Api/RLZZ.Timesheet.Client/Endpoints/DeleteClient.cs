@@ -10,9 +10,7 @@ public class DeleteClient(ICommandor commandor) : Endpoint<DeleteClientRequest>
     public override void Configure()
     {
         Delete("/api/v1/clients/{id}");
-        
-        //TODO: Next harus set Security nya
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(DeleteClientRequest req, CancellationToken ct)

@@ -10,7 +10,7 @@ public class DeleteGroup(ICommandor commandor) : Endpoint<DeleteGroupRequest>
     public override void Configure()
     {
         Delete("/api/v1/groups/{id}");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(DeleteGroupRequest req, CancellationToken ct)

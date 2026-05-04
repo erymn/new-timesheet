@@ -12,7 +12,7 @@ public class CreateUser(ICommandor commandor)
     public override void Configure()
     {
         Post("/api/v1/users");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(UserDto userDto, CancellationToken ct)

@@ -11,9 +11,7 @@ public class GetClientById(ICommandor commandor) : Endpoint<GetClientByIdRequest
     public override void Configure()
     {
         Get("/api/v1/clients/{id}");
-        
-        //TODO: Next harus set Security nya
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
     
     public override async Task HandleAsync(GetClientByIdRequest req, CancellationToken ct)

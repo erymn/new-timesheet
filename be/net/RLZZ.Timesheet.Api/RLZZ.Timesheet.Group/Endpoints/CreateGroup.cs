@@ -12,7 +12,7 @@ public class CreateGroup(ICommandor commandor)
     public override void Configure()
     {
         Post("/api/v1/groups");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(GroupDto groupDto, CancellationToken ct)

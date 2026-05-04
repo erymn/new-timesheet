@@ -12,7 +12,7 @@ public class CreateProject(ICommandor commandor)
     public override void Configure()
     {
         Post("/api/v1/projects");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(ProjectDto projectDto, CancellationToken ct)

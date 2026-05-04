@@ -16,7 +16,6 @@
 
     <ItemGroup>
       <Folder Include="Data\" />
-      <Folder Include="Endpoints\" />
       <Folder Include="Extension\" />
       <Folder Include="Features\" />
       <Folder Include="Migration\" />

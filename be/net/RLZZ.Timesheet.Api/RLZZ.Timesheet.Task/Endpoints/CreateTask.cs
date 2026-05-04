@@ -13,7 +13,7 @@ public class CreateTask(ICommandor commandor)
     public override void Configure()
     {
         Post("/api/v1/tasks");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
 
     public override async SysTask.Task HandleAsync(TsTaskDto taskDto, CancellationToken ct)

@@ -11,7 +11,7 @@ public class GetAllTask(ICommandor commandor) : EndpointWithoutRequest
     public override void Configure()
     {
         Get("/api/v1/tasks");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
 
     public override async SysTask.Task HandleAsync(CancellationToken ct)

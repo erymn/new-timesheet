@@ -12,7 +12,7 @@ public class CreateProjectType(ICommandor commandor)
     public override void Configure()
     {
         Post("/api/v1/project-types");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(ProjectTypeDto projectTypeDto, CancellationToken ct)

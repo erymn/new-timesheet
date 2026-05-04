@@ -11,7 +11,7 @@ public class GetUserById(ICommandor commandor) : Endpoint<GetUserByIdRequest>
     public override void Configure()
     {
         Get("/api/v1/users/{id}");
-        AllowAnonymous();
+        //Policies("AdminPolicy");
     }
     
     public override async Task HandleAsync(GetUserByIdRequest req, CancellationToken ct)

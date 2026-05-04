@@ -12,7 +12,7 @@ public class GetTaskById(ICommandor commandor) : Endpoint<GetTaskByIdRequest>
     public override void Configure()
     {
         Get("/api/v1/tasks/{id}");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
     
     public override async SysTask.Task HandleAsync(GetTaskByIdRequest req, CancellationToken ct)

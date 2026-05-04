@@ -1,9 +1,11 @@
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using Microsoft.Extensions.Configuration;
 using RLZZ.Timesheet.Client.Extension;
 using RLZZ.Timesheet.Group.Extension;
 using RLZZ.Timesheet.Project.Extension;
 using RLZZ.Timesheet.ProjectType.Extension;
+using RLZZ.Timesheet.Securities;
 using RLZZ.Timesheet.Task.Extension;
 using RLZZ.Timesheet.User.Extension;
 
@@ -11,6 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddFastEndpoints();
 builder.Services.SwaggerDocument();
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>() ?? new JwtSettings();
+builder.Services.AddSecurityServices(jwtSettings);
 
 builder.Services.AddClientService(builder.Configuration);
 builder.Services.AddGroupService(builder.Configuration);
@@ -27,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseFastEndpoints();
 
 app.Run();

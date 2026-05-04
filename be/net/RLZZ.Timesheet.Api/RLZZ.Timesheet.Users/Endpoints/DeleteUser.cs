@@ -10,7 +10,7 @@ public class DeleteUser(ICommandor commandor) : Endpoint<DeleteUserRequest>
     public override void Configure()
     {
         Delete("/api/v1/users/{id}");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(DeleteUserRequest req, CancellationToken ct)

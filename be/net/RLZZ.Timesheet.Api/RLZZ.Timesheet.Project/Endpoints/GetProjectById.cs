@@ -11,7 +11,7 @@ public class GetProjectById(ICommandor commandor) : Endpoint<GetProjectByIdReque
     public override void Configure()
     {
         Get("/api/v1/projects/{id}");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
     
     public override async Task HandleAsync(GetProjectByIdRequest req, CancellationToken ct)

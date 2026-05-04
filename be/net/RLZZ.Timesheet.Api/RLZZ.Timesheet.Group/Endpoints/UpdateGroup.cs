@@ -12,7 +12,7 @@ public class UpdateGroup(ICommandor commandor) : EndpointWithoutRequest<UpdateGr
     public override void Configure()
     {
         Put("/api/v1/groups/{id}");
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public async Task HandleAsync(UpdateGroupRequest req, CancellationToken ct)

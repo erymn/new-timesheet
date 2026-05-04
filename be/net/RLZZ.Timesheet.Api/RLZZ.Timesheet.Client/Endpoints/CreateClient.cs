@@ -12,9 +12,7 @@ public class CreateClient(ICommandor commandor)
     public override void Configure()
     {
         Post("/api/v1/clients");
-
-        //TODO: Next harus set Security nya
-        AllowAnonymous();
+        Policies("AdminPolicy");
     }
 
     public override async Task HandleAsync(ClientDto clientDto, CancellationToken ct)

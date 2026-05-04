@@ -20,4 +20,10 @@ public interface IUserService : ICommandorService
     
     [CommandHandler]
     Task<bool> DeleteUserAsync(DeleteUserCommand command, CancellationToken cancellationToken = default);
+    
+    [CommandHandler]
+    Task<AuthResponseDto> LoginAsync(LoginCommand command, CancellationToken cancellationToken = default);
+    
+    [CommandHandler]
+    Task<AuthResponseDto> RefreshTokenAsync(RefreshTokenCommand command, CancellationToken cancellationToken = default);
 }

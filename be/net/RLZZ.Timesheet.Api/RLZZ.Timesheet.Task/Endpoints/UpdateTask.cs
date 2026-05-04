@@ -13,7 +13,7 @@ public class UpdateTask(ICommandor commandor) : EndpointWithoutRequest<UpdateTas
     public override void Configure()
     {
         Put("/api/v1/tasks/{id}");
-        AllowAnonymous();
+        Policies("UserPolicy");
     }
 
     public async SysTask.Task HandleAsync(UpdateTaskRequest req, CancellationToken ct)
