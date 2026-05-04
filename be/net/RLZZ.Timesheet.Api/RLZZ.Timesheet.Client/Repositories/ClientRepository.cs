@@ -12,9 +12,9 @@ public class ClientRepository : IClientRepository
         _context = context;
     }
 
-    public async Task<Model.Client> GetByIdAsync(int id)
+    public async Task<Model.Client> GetByIdAsync(string id)
     {
-        return await _context.Clients.FirstOrDefaultAsync(c => c.Id == id);
+        return await _context.Clients.FirstOrDefaultAsync(c => c.ClientUniqueId == id);
     }
 
     public async Task<List<Model.Client>> ListAllAsync()
@@ -25,6 +25,8 @@ public class ClientRepository : IClientRepository
     public async Task AddAsync(Model.Client client)
     {
         await _context.Clients.AddAsync(client);
+        await SaveChangesAsync();
+        client.UpdateUniqueId(client.Id);
         await SaveChangesAsync();
     }
 

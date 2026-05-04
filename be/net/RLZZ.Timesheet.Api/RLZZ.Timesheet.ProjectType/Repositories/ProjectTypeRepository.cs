@@ -12,19 +12,21 @@ public class ProjectTypeRepository : IProjectTypeRepository
         _context = context;
     }
 
-    public async Task<Model.ProjectType> GetByIdAsync(int id)
+    public async Task<Model.ProjectType> GetByIdAsync(string id)
     {
-        return await _context.ProjectTypes.FirstOrDefaultAsync(c => c.Id == id);
+        return await _context.ProjectTypes.FirstOrDefaultAsync(pt => pt.ProjectTypeUniqueId == id);
     }
 
     public async Task<List<Model.ProjectType>> ListAllAsync()
     {
-        return await _context.ProjectTypes.Where(c => c.IsDeleted == false).ToListAsync();
+        return await _context.ProjectTypes.Where(pt => pt.IsDeleted == false).ToListAsync();
     }
 
     public async Task AddAsync(Model.ProjectType projectType)
     {
         await _context.ProjectTypes.AddAsync(projectType);
+        await SaveChangesAsync();
+        projectType.UpdateUniqueId(projectType.Id);
         await SaveChangesAsync();
     }
 

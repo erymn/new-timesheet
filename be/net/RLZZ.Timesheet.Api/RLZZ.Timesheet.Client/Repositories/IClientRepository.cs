@@ -2,7 +2,7 @@ namespace RLZZ.Timesheet.Client.Repositories;
 
 public interface IClientRepository
 {
-    Task<Model.Client> GetByIdAsync(int id);
+    Task<Model.Client> GetByIdAsync(string id);
     Task<List<Model.Client>> ListAllAsync();
     Task AddAsync(Model.Client client);
     Task UpdateAsync(Model.Client client);

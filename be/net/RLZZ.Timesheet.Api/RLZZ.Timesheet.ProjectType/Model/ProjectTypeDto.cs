@@ -7,11 +7,12 @@ public record ProjectTypeDto
 
     public ProjectTypeDto()
     {
+        
     }
 
     public ProjectTypeDto(string projectTypeUniqueId, string name) : this()
     {
-        ProjectTypeUniqueId = projectTypeUniqueId;
-        Name = name;
+        this.ProjectTypeUniqueId = projectTypeUniqueId;
+        this.Name = name;
     }
 }

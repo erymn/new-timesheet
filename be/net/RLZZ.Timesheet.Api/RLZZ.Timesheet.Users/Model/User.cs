@@ -25,6 +25,8 @@ public class User
     public DateTime ModifiedDate { get; private set; } = DateTime.Now;
     public string ModifiedBy { get; private set; } = "system";
 
+    public List<string> Roles { get; set; } = new();
+
     public User(string userName, string password, string salt, string email, bool isForceResetPassword, string supervisorId)
     {
         Username = Guard.Against.NullOrEmpty(userName, nameof(Username));
@@ -42,6 +44,19 @@ public class User
 
     public void UpdateDeletedFlag(bool isDeleted)
     {
+        IsActive = !isDeleted;
         IsDeleted = isDeleted;
+    }
+
+    public bool VerifyPassword(string password)
+    {
+        return PasswordHasher.VerifyPassword(password, Password, Salt);
+    }
+
+    public void UpdatePassword(string newPassword)
+    {
+        Salt = Guid.NewGuid().ToString();
+        Password = PasswordHasher.HashPassword(newPassword, Salt);
+        IsForceResetPassword = false;
     }
 }

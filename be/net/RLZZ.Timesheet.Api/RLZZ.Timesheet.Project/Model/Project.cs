@@ -36,6 +36,7 @@ public class Project
 
     public void UpdateDeletedFlag(bool isDeleted)
     {
+        IsActive = !isDeleted;
         IsDeleted = isDeleted;
     }
 }
